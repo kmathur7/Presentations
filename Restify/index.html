@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Node.js</title>
+		<title>Restify</title>
 
 		
 		<meta name="author" content="Kunal Mathur">
@@ -57,12 +57,84 @@
 					</section>
 					<section>
 						<h3 class="nocaps">Few thing to remember</h3>
-						<p>Javascript Engines</p>
-						<p>Running JS outside the browser</p>
-						<p>built on top of V8 Engine</p>
-						<p>Non-Blocking I/O</p>
+						<p>Node.js</p>
+						<p>Modules</p>
+						<p>NPM</p>
+						<p>REST</p>
+					</section>
+					<section>
+						<h3 class="nocaps">Express vs Restify</h3>
+					</section>
+					<section>
+						<h3 class="nocaps">Detailed Documentation?</h3>
+						<p>http://restify.com/#server-api</p>
+
 					</section>
 					
+				</section>
+				<section>
+					<section>
+						<h3 class="nocaps">Installation</h3>
+						<p>in command line</p>
+						<pre><code>
+					npm install restify --save
+ 						</code></pre>
+ 						<p>in JS code</p>
+ 						<pre><code>
+					var restify = require('restify');
+ 						</code></pre>
+					</section>
+					
+				</section>
+				<section>
+					<section>
+						<h3 class="nocaps">Creating a Server</h3>
+						<pre><code>
+					var restify = require('restify');
+
+					var server = restify.createServer({
+    				name: 'MyApp'
+					});
+
+					server.listen(8080);
+ 						</code></pre>
+ 						<h5 class="nocaps">Other options</h5>
+ 						<p>certificate</p>
+ 						<p>key</p>
+ 						<p>log</p>
+
+					</section>
+					<section>
+						<h3 class="nocaps">server.use()</h3>
+						<p>Need to be declared before routes</p>
+						<p>restify runs handlers in the order they are registered on a server</p>
+						<p>restify ships with several handlers you can use</p>
+						<a href="http://restify.com/#bundled-plugins">http://restify.com/#bundled-plugins</a>
+					</section>
+					<section>
+						<h3 class="nocaps">Routing</h3>
+						<pre><code>
+					server.RESTmethod('endpoint name', handler function);
+ 						</code></pre>
+ 						<pre><code>
+					server.get('/hello/:name', function(req, res, next){
+						res.send('hello ' + req.params.name);
+						next();
+					});
+ 						</code></pre>
+					</section>
+					<section>
+						<h3 class="nocaps">Content Negotiation</h3>
+						<p>restify automatically selects the content-type to respond with</p>
+						<p>restify ships with application/json,  text/plain and application/octet-stream formatters</p>
+						<pre><code>
+					res.setHeader('content-type', 'application/foo');
+					res.send({hello: 'world'});
+ 						</code></pre>
+					</section>
+					<section>
+						<h2 class="nocaps"><strong>Let's create an API !!</strong></h2>
+					</section>
 				</section>
 				
 				<section>
