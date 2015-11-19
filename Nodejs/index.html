@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Node.js</title>
+
+		
+		<meta name="author" content="Kunal Mathur">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- <link rel="stylesheet" href="css/reveal.min.css"> -->
+		<link rel="stylesheet" href="css/reveal.css">
+		<!-- <link rel="stylesheet" href="css/theme/default.css" id="theme"> -->
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- For print to pdf support -->
+		<!-- <link rel="stylesheet" href="css/print/pdf.css"> -->
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="#303030"> 
+					<h1 class="nocaps"><img src="images/logo.svg" border =none; width="50%"></h1>
+					
+				</section>
+				<section>
+					<h3 class="nocaps">What we gonna talk today ? </h3>
+					<h4 class="nocaps">And what you should know ?</h4>
+					
+				</section>
+
+				<section>
+					<section>
+						<h2 class="nocaps"><strong>Let's get started !!</strong></h2>
+					</section>
+					<section>
+						<h3 class="nocaps">Few thing to remember</h3>
+						<p>Javascript Engines</p>
+						<p>Running JS outside the browser</p>
+						<p>built on top of V8 Engine</p>
+						<p>Non-Blocking I/O</p>
+					</section>
+					<section>
+						<h3 class="nocaps">Understanding Node.js</h3>
+						<p>Node.js is an open source project designed to help you write JavaScript programs that talk to</p>
+						<p class="fragment roll-in">networks</p>
+						<p class="fragment roll-in">file systems</p>
+						<p class="fragment roll-in">other I/O (input/output, reading/writing) sources.</p>
+					</section>
+					<section>
+						<h3 class="nocaps">When to use node? </h3>
+						<p class="fragment roll-in">Node is great for streaming or event-based real-time applications like</p>
+						<p class="fragment roll-in">Chat Applications</p>
+						<p class="fragment roll-in">Real time applicaitons and collaborative Environments</p>
+						<p class="fragment roll-in">Game servers</p>
+						<p class="fragment roll-in">Ad Servers</p>
+						<p class="fragment roll-in">Streaming Servers</p>
+						<p class="fragment roll-in">Useful for I/O based programs that need to be fast and/or handle lots of connections</p>
+						<p class="fragment roll-in">Node is great when you need high levels of concurrency but little dedicated CPU time</p>
+
+					</section>
+					<section>
+						<h2 class="nocaps">The Big Picture</h2>
+						<img src="images/server-diagram.png">
+						<p class="fragment roll-in">can act as the broker between all of the different I/O endpoints</p>
+					</section>
+					
+
+				</section>
+				<section>
+					<h3 class="nocaps">Installation & Documentation</h3>
+					<p>https://nodejs.org/en/</p>
+				</section>
+				<section>
+					<section>
+						<h3 class="nocaps">Event Loop</h3>
+						<img src="images/eventloop.png">
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3 class="nocaps">Core Modules (node core)</h3>
+						<p class="fragment roll-in">public API that you are intended to write programs with.</p>
+						<p class="fragment roll-in">file systems there is the fs module</p>
+						<p class="fragment roll-in">for networks there are modules like net (TCP), http, dgram (UDP).</p>
+					</section>
+					<section>
+						<h3 class="nocaps">Blocking I/O</h3>
+						<pre><code>
+					var fs = require('fs');
+					
+					var contents = fs.readFileSync('package.json').toString();
+
+					console.log(contents);
+
+						</code></pre>
+						<p class="fragment roll-in">what if the file being read in huge?</p>
+					</section>
+					<section>
+						<h3 class="nocaps">Non - Blocking I/O</h3>
+						<pre><code>
+					var fs = require('fs');
+					
+					fs.readFile('package.json',function(err,buffer){
+						console.log(buffer.toString());
+					});
+ 
+
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3 class="nocaps">Callbacks</h3>
+						<p>Callbacks are functions that are executed asynchronously, or at a later time.</p>
+					</section>
+					
+					<section>
+						<h3 class="nocaps">Promises</h3>
+						<p>A function will return a promise for a object in the future</p>
+						<p>Promises can be chained together</p>
+						<p>Simplify programming of async systems</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3 class="nocaps">Event Driven Programming</h3>
+						<p class="fragment roll-in">a programming paradigm in which the flow of the program is determined by events such as user actions (mouse click, key press) or messages from other programs.</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3 class="nocaps">Events</h3>
+						<p class="fragment roll-in">callbacks are a one-to-one relationship between the thing waiting for the callback and the thing calling the callback</p>
+						<p class="fragment roll-in">events are the same exact pattern except with a many-to-many API</p>
+					</section>
+					<section>
+						<h3 class="nocaps">Common use cases for events</h3>
+						<ul>
+							<li class="fragment roll-in">Chat room where you want to broadcast messages to many listeners</li>
+							<li class="fragment roll-in">Game server that needs to know when new players connect, disconnect, move, shoot and jump</li>
+							<li class="fragment roll-in">Game engine where you want to let game developers subscribe to events like .on('jump', function() {})</li>
+						</ul>	
+						
+					</section>
+					<section>
+						<pre><code>
+							var chatClient = require('my-chat-client').connect()
+
+							chatClient.on('connect', function() {
+  								// have the UI show we are connected
+							}) 
+
+							chatClient.on('connectionError', function() {
+  								// show error to the user
+							})
+
+							chatClient.on('disconnect', function() {
+  								// tell user that they have been disconnected
+							})
+
+							chatClient.on('message', function() {
+  								// show the chat room message in the UI
+							})
+						</code></pre>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h3 class="nocaps">Modules</h3>
+						<p class="fragment roll-in">Node core is supposed to be small, and the modules in core should be focused on providing tools for working with common I/O protocols and formats in a way that is cross-platform.</p>
+						<p class="fragment roll-in"><b>For everything else there is npm.</b></p>
+					</section>
+					<section>
+						<h3 class="nocaps">What is NPM?</h3>
+						<p class="fragment roll-in">Official package manager for Node.</p>
+						<p class="fragment roll-in">Bundled and installed automatically with the environment</p>
+						<p class="fragment roll-in">npm install package_name --save</p>
+
+					</section>
+					<section>
+						<h3 class="nocaps">What is a package.json?</h3>
+						<pre><code>
+					{
+  					    "name": "Appname",
+  					    "version": "0.1.0",
+					    "description": "Application description",
+  					    "main": "index.html",
+  					    "author": "Kunal Mathur",
+  					    "license": "ISC",
+  					    "devDependencies": {
+    					         "grunt": "^0.4.5"
+    				    }
+					}
+
+						</code></pre>
+					</section>
+					<section>
+						<h3 class="nocaps">Semantic Versioning</h3>
+						<p class="fragment roll-in">"grunt": "^x.y.z"</p>
+						<p class="fragment roll-in">PATCH version(Z) - when you make backwards-compatible bug fixes.</p>
+						<p class="fragment roll-in">MINOR version(Y) - when you add functionality in a backwards-compatible manner</p>
+						<p class="fragment roll-in">MAJOR version (X) - when you make incompatible API changes</p>
+
+					</section>
+					<section>
+						<h3 class="nocaps">How does it work?</h3>
+						<p class="fragment roll-in">Reads package.json</p>
+						<p class="fragment roll-in">installs dependencies in the local node_modules folder</p>
+						<p class="fragment roll-in">Can specify dev or optional dependencies.</p>
+					</section>
+					<section>
+						<h3 class="nocaps">How require works</h3>
+						<h4 class="nocaps">When you call <b>require('some_module')</b> in node here is what happens:</h4>
+						<ol>
+							<li class="fragment roll-in">if a file called some_module.js exists in the current folder node will load that, otherwise:</li>
+							<li class="fragment roll-in">node looks in the current folder for a node_modules folder with a some_module folder in it</li>
+							<li class="fragment roll-in"> if it doesn't find it, it will go up one folder and repeat step 2</li>
+						</ol>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2 class="nocaps">Popular Modules</h2>
+						<ul>
+							<li>Express</li>
+							<li>Grunt</li>
+							<li>Gulp</li>
+							<li>Moongoose</li>
+							<li>Jade</li>
+							<li>CSURF</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2 class="nocaps">Express</h2>
+						<p class="fragment roll-in">Express is a minimal, open source and flexible node.js web app framework designed to make developing websites, web apps, and APIs much easier.</p>
+					</section>
+					<section>
+						<h3 class="nocaps">Why use Express?</h3>
+						<p class="fragment roll-in">Express helps you respond to requests with route support so that you may write responses to specific URLs</p>
+						<p class="fragment roll-in">Supports multiple templating engines to simplify generating HTML</p>
+					</section>
+					<section>
+						<h3 class="nocaps">Creating a simple REST API</h3>
+					</section>
+					<section>
+						<h3 class="nocaps">Explanation of Routes</h3>
+						<p class="fragment roll-in">A router maps HTTP requests to a callback</p>
+						<p class="fragment roll-in">HTTP requests can be sent at GET/POST/PUT/DELETE etc.</p>
+						<p class="fragment roll-in">URLs describe the location targeted</p>
+						<p class="fragment roll-in">helps you map a HTTP GET request like http://localhost:8888/index</p>
+						<p class="fragment roll-in">to a request handler (callback)</p>
+						<p class="fragment roll-in">app.get('/index',function(req,res){});</p>
+					</section>
+					<section>
+						<h3 class="nocaps">Creating a simple Express Application</h3>
+						<pre><code>
+					var express = require('express');
+					var app = express();
+
+					app.get('/',function(req,res){
+						res.json({message:'welcome to our API!'});
+					});
+
+					app.listen(process.env.PORT || 8080);
+
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<img src="images/Spock_vulcan-salute.png">
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

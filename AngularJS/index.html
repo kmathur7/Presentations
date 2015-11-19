@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>AngularJS</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- <link rel="stylesheet" href="css/reveal.min.css"> -->
+		<link rel="stylesheet" href="css/reveal.css">
+		<!-- <link rel="stylesheet" href="css/theme/default.css" id="theme"> -->
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- For print to pdf support -->
+		<!-- <link rel="stylesheet" href="css/print/pdf.css"> -->
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1 class="nocaps"><img src="images/AngularJS-large.png" border =none; ></h1>
+					
+				</section>
+				<section>
+					<h3 class="nocaps">What we gonna talk today ? </h3>
+					<h4 class="nocaps">And what you should know ?</h4>
+					
+				</section>
+
+				<section>
+					<section>
+						<h2 class="nocaps"><strong>AngularJS !!!</strong></h2>
+						<h4 class="nocaps">What is it ?</h4>
+						<h4 class="nocaps">Why should we learn it ?</h4>
+					</section>
+					
+					
+
+				</section>
+
+				<section>
+					<section>
+						<h2 class="nocaps">History of AngularJS</h2>
+					</section>
+					<section>
+						<h4 class="nocaps">THE GUY !!</h4>
+						<img src="images/Misko.jpg">
+						<p class="small"><a href="http://misko.hevery.com/about/">Misko Hevery</a></p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2 class="nocaps"><strong>Let's get started !!</strong></h2>
+					</section>
+					<section>
+						<h4 class="nocaps">Learning Curve !!</h4>
+						<img src="images/feeling.png">
+					</section>
+					<section>
+						<h2 class="nocaps">The Big Picture</h2>
+						<img src="images/flowchart.png">
+					</section>
+
+
+					
+				</section>
+
+				<section>
+					<section>
+						<h2 class="nocaps">Terms to know</h2>
+						<p class="fragment roll-in">Single Page Application</p>
+						<p class="fragment roll-in">MVC,MVVM,MVP, MV*</p>
+						<p class="fragment roll-in">Two Way Data Binding</p>
+						<p class="fragment roll-in">Dependency Injection</p>
+						<p class="fragment roll-in">Framework vs Library</p>
+					</section>
+					
+				</section>
+
+				<section>
+					<section>
+						<img src="images/module.png">
+						<h2 class="nocaps">Module</h2>
+					</section>
+					<section>
+						<img src="images/config.png">
+						<p>Config Block</p>
+						<img src="images/run.png">
+						<p>Run Block</p>
+					</section>
+					
+					<section>
+						<h3 class="nocaps">module.constant</h3>
+						<p class="fragment roll-in">register a constant service with the module</p>
+						<p class="fragment roll-in">store configurations</p>
+						<p class="fragment roll-in">application wide variables</p>
+						<p class="fragment roll-in">which do not change</p>
+
+					</section>	
+					<section>
+						<h3 class="nocaps">array syntax format</h3>
+					<pre class="fragment roll-in"><code>
+    .run(['VERSION','$rootScope',function(VERSION,$rootScope){
+    	alert(VERSION);
+		}]);
+						</code></pre>
+						
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<img src="images/controller.png">
+						<h2 class="nocaps">Controller & $scope</h2>
+						
+					</section>
+					<section>
+						<p class="nocaps">$scope is the glue between controller and view</p>
+						<p class="nocaps">$scope provides context</p>
+					</section>
+					<section>
+						<h3 class="nocaps">$scope vs $rootScope</h3>
+						<p class="fragment nocaps roll-in">Whats the difference?</p>
+					</section>	
+					<section>
+						<h3 class="nocaps">Methods and Properties on $scope</h3>
+						<p class="fragment nocaps roll-in">AngularJS allows you to bind methods as well as simple values</p>
+					</section>
+						
+					
+				</section>
+				<section>
+
+				
+					<section>
+						<img src="images/routes.png">
+						<h2 class="nocaps">Routing</h2>
+						<p class="fragment nocaps roll-in">Used to provide deep linking.</p>
+						<p class="fragment nocaps roll-in">Used to decide what View is to be loaded.</p>
+						<p class="fragment nocaps roll-in">Requires separate sub-module</p>
+						
+					</section>
+					<section>
+						<h3 class="nocaps">Angular Router</h3>
+						<p class="fragment nocaps roll-in">URL based.</p>
+						<p class="fragment nocaps roll-in">Requires ngRoute sub-module</p>
+						<p class="fragment nocaps roll-in">Use $routeProvider to define routes.</p>
+						<p class="fragment nocaps roll-in">Maps the URL to a View and Controller combo.</p>
+
+					</section>
+					<section>
+						<h3 class="nocaps">UI Router</h3>
+						<p class="fragment nocaps roll-in">Views are based on state of Application.</p>
+						<p class="fragment nocaps roll-in">Requires ui.router sub-module</p>
+						<p class="fragment nocaps roll-in">Use $stateProvider to define routes.</p>
+						<p class="fragment nocaps roll-in">Maps the state to a View and Controller combo.</p>
+						<p class="fragment nocaps roll-in">Allows nesting of views.</p>
+
+
+					</section>
+				</section>
+				<section>
+					<section>
+						<img src="images/views.png">
+						<h2 class="nocaps">Views</h2>
+						<p class="fragment nocaps roll-in">Is AngularJS compiled DOM</p>
+						<p class="fragment nocaps roll-in">is the product of the $compile merging the html template with $scope</p>
+						
+					</section>
+					<section>
+						<h3 class="nocaps">How Views Work?</h3>
+						<img src="images/digest.jpg">
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<img src="images/services.png">
+						<h2 class="nocaps">Services</h2>
+						
+					</section>
+					<section>
+						<img src="images/Capture1.png">
+						
+					</section>
+					<section>
+						
+						<h3 class="nocaps">$http Service</h3>
+						<p class="fragment nocaps roll-in">core Angular Service</p>
+						<p class="fragment nocaps roll-in">facilitates communication with remote HTTP servers</p>
+						<p class="fragment nocaps roll-in">using XHR object or JSONP</p>
+						<p class="fragment nocaps roll-in">is based on the deferred/promise API exposed by the $q service.</p>
+						
+					</section>
+					<section>
+						
+						<h3 class="nocaps">$http methods (REST)</h3>
+						<p class="fragment nocaps roll-in">$http.get</p>
+						<p class="fragment nocaps roll-in">$http.post</p>
+						<p class="fragment nocaps roll-in">$http.put</p>
+						<p class="fragment nocaps roll-in">$http.delete</p>
+						
+						
+					</section>
+					<section>
+						
+						<h3 class="nocaps">PROMISES</h3>
+						<p class="fragment nocaps roll-in">returned value of calling $http is a promise</p>
+						<p class="fragment nocaps roll-in">use then method to register callbacks</p>
+						<p class="fragment nocaps roll-in">callbacks recieve a single argument</p>
+						<p class="fragment nocaps roll-in">an object representing the response.</p>
+						
+					</section>
+					<section>
+						<h3 class="nocaps">Communication between controllers</h3>
+						<p class="fragment nocaps roll-in">Controllers should not talk to each other</p>
+						<p class="fragment nocaps roll-in">use service to facilitate communication</p>
+						<p class="fragment nocaps roll-in">$broadcast sends events downwards</p>
+						<p class="fragment nocaps roll-in">$emit sends events upwards</p>
+						<p class="fragment nocaps roll-in">$on listens for events</p>
+						<p class="fragment nocaps roll-in">$rootScope</p>
+
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2 class="nocaps">Directives</h2>
+						<p class="fragment nocaps roll-in">attaches specified behaviour to existing DOM elements or create new elements</p>
+					</section>
+					<section>
+						<h3 class="nocaps">Things a directive can do</h3>
+						<p class="fragment nocaps roll-in">manipulate DOM</p>
+						<p class="fragment nocaps roll-in">iterate through data</p>
+						<p class="fragment nocaps roll-in">Handle events</p>
+						<p class="fragment nocaps roll-in">Modify CSS</p>
+						<p class="fragment nocaps roll-in">Validate data</p>
+						<p class="fragment nocaps roll-in">Data Binding</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<img src="images/directives.png">
+						<h2 class="nocaps">In-built Directives</h2>
+					</section>
+					<section>
+						<h3 class="nocaps">Types</h3>
+						<p class="fragment nocaps roll-in">Layout Directives</p>
+						<p class="fragment nocaps roll-in">Interaction Directives</p>
+						
+					</section>
+					<section>
+						<h3 class="nocaps">Layout Directives</h3>
+						<p class="fragment nocaps roll-in">ngif</p>
+						<p class="fragment nocaps roll-in">ngShow/ngHide</p>
+						<p class="fragment nocaps roll-in">ngRepeat</p>
+						<p class="fragment nocaps roll-in">ngSwitch</p>
+						<p class="fragment nocaps roll-in">ngInclude</p>
+					</section>
+					<section>
+						<h3 class="nocaps">Interaction Directives</h3>
+						<p class="fragment nocaps roll-in">ngModel</p>
+						<p class="fragment nocaps roll-in">ngBlur/ngFocus</p>
+						<p class="fragment nocaps roll-in">ngClick</p>
+						<p class="fragment nocaps roll-in">ngSubmit</p>
+					</section>	
+					<section>
+						<h3 class="nocaps">Styling Directives</h3>
+						<p class="fragment nocaps roll-in">ngClass</p>
+						
+					</section>
+						
+				</section>
+				<section>
+					<section>
+						<h2 class="nocaps">The Big Picture</h2>
+						<img src="images/flowchart.png">
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2 class="nocaps">Custom Directives</h2>
+					</section>
+					<section>
+						<h3 class="nocaps">Naming Convention</h3>
+						<p class="fragment nocaps roll-in">camelCase</p>
+						<p class="fragment nocaps roll-in">snake-case,colon,underscore</p>
+					</section>
+					<section>
+						<h3 class="nocaps">$compile, $digest, $apply services</h3>
+					</section>
+					<section>
+						<img src="images/ddo.png">
+					</section>
+					<section>
+						<h3 class="nocaps">Directive Definition Object</h3>
+						<p class="fragment nocaps roll-in">tells the compiler how a directive is supposed to be assembled.</p>
+						<p class="fragment nocaps roll-in">Fields which can be used in a directive definition</p>
+						<p class="fragment nocaps roll-in">name, restrict, priority, terminal</p>
+						<p class="fragment nocaps roll-in">link, template, templateURL, replace</p>
+						<p class="fragment nocaps roll-in">transclude, scope, controller, require, compile</p>
+
+					</section>
+					<section>
+						<h3 class="nocaps">Replace</h3>
+						<p class="fragment nocaps roll-in">Replace DOM element it is defined on with the directive template</p>
+					</section>
+					<section>
+						<h3 class="nocaps">Restrict</h3>
+						<p class="fragment nocaps roll-in">Restricts the definition of the directive</p>
+						<p class="fragment nocaps roll-in">E-Element</p>
+						<p class="fragment nocaps roll-in">C-Class</p>
+						<p class="fragment nocaps roll-in">M-Comment</p>
+						<p class="fragment nocaps roll-in">A-Attribute</p>
+
+					</section>
+					<section>
+						<h3 class="nocaps">Template URL</h3>
+						<p class="fragment nocaps roll-in">Replaces current content of DOM element with content of template loaded via templateUrl.</p>
+					</section>
+					<section>
+						<h3 class="nocaps">Scope</h3>
+						<p class="fragment nocaps roll-in">Shared Scope - Directives share scope with the enclosed controller</p>
+						
+						<p class="fragment nocaps roll-in">Isolated Scope - Directives and Controllers have different scope. Data is not shared.</p>
+					</section>
+					<section>
+						<h3 class="nocaps">Isolated Scope Properties</h3>
+						<p class="fragment nocaps roll-in">@ - to access string values</p>
+						<p class="fragment nocaps roll-in">= - to access object value and two way binding</p>
+						<p class="fragment nocaps roll-in">& - to bind external function</p>
+					</section>
+					<section>
+						<h3 class="nocaps">Link Function</h3>
+						<p class="fragment nocaps roll-in">is where the DOM manipulation happens</p>
+						<p class="fragment nocaps roll-in">comes with scope, element, attrs</p>
+						<p class="fragment nocaps roll-in">element is a jQuery instance of the DOM element the directive is declared on.</p>
+						<p class="fragment nocaps roll-in">attrs is a list of attributes declared on the element.</p>
+
+
+					</section>
+					<section>
+						<h3 class="nocaps">Controller Function</h3>
+						<p class="fragment nocaps roll-in">is constructed during the pre-linking phase</p>
+						<p class="fragment nocaps roll-in">recieves $scope which is the current scope for the element.</p>
+
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2 class="nocaps">Testing</h2>
+						<h3 class="fragment nocaps roll-in">Unit Testing</h3>
+						<h3 class="fragment nocaps roll-in">E2E Testing</h3>
+					</section>
+					<section>
+						<h3 class="nocaps">Unit Testing</h3>
+						<p>The primary goal of unit Testing is to take the smallest piece of testable software in the application, isolate it from the remainder of the code, and determine whether it behaves exactly as you expect.</p>
+					</section>
+					
+					<section>
+						<img src="./images/Karma.png">
+						<p class="fragment nocaps roll-in">npm install karma --save-dev</p>
+						<p class="fragment nocaps roll-in">npm install -g karma-cli</p>
+						<p class="fragment nocaps roll-in">npm install karma-jasmine karma-chrome-launcher --save-dev</p>
+						<p class="fragment nocaps roll-in">karma init</p>
+						<p class="fragment nocaps roll-in">karma start</p>
+						<p class="fragment nocaps roll-in">karma run</p>
+
+
+
+					</section>
+					<section>
+						<img src="./images/jasmine.png">
+						<p class="fragment nocaps roll-in">Developed by Pivotal Labs</p>
+						<p class="fragment nocaps roll-in">syntax pretty similar to most famous testing framework, RSpec.</p>
+						
+					</section>
+					<section>
+						<h3 class="nocaps">Things to know</h3>
+						<p class="fragment nocaps roll-in">Suites: describe Your Tests</p>
+						<p class="fragment nocaps roll-in">Specs</p>
+						<p class="fragment nocaps roll-in">Expectations</p>
+						<p class="fragment nocaps roll-in">Matchers</p>
+					</section>
+					<section>
+						<p>in jasmine, we begin by creating a test suite with the global <b>describe</b> function that wraps our specs.</p>
+						<p>specs are defined by the global function <b>it</b>.</p>
+						<p>inside the spec we can describe our expectations by using the <b>expect</b> function chained to a matcher function</p>
+						<pre class="fragment roll-in"><code>
+    describe("A suite", function() {
+        it("contains spec with an expectation", function() {
+            expect(true).toBe(true);
+        });
+    });
+						</code></pre>
+					</section>
+					<section>
+						<p>we can run code before and after each spec in a suite block using the <b>beforeEach</b> and <b>afterEach</b> functions.</p>
+
+						<pre class="fragment roll-in"><code>
+    describe("A suite", function() {
+        beforeEach(function(){//execute before each spec})
+
+        it("contains spec with an expectation", function() {
+            expect(true).toBe(true);
+        });
+
+        afterEach(function() {//execute after each spec})
+    });
+						</code></pre>
+					</section>
+					<section>
+						<h3 class="nocaps">Testing in Angular</h3>
+						<p class="fragment nocaps roll-in">angular.js</p>
+						<p class="fragment nocaps roll-in">angular-mocks.js</p>
+						<p class="fragment nocaps roll-in">karma.conf.js</p>
+						<p class="fragment nocaps roll-in">Code</p>
+						<p class="fragment nocaps roll-in">Test specs</p>
+					</section>
+					<section>
+						<h3 class="nocaps">List of commonly used matchers</h3>
+						<p>toBe, toEqual, toMatch, toBeDefined()</p>
+						<p>not.toBeDefined(), toBeNull(), not.toBeNull(), toBeFalsy()</p>
+						<p>toBeTruthy(), toBeLessThan(2), toBeGreaterThan(4)</p>
+					</section>
+					<section>
+						<h3 class="nocaps">Testing Controllers</h3>
+						<p>In order to test controllers, we need to hold an instance of the controller, initialize a scope for it and test our expectations against that scope.</p>
+						<pre class="fragment roll-in"><code>
+    describe("Testing a Controller", function() {
+    	// get the module that contains the controller
+        beforeEach(module('NameOfModule'));
+
+        // inject the $controller and $rootScope
+		beforeEach(inject(function($rootScope,$controller){
+			//create a fresh new scope for the controller
+			scope = $rootScope.new();
+
+			//create a controller with this scope
+			ctrl = $controller('ControllerName',{$scope: scope});
+		}));        
+
+    });
+						</code></pre>
+					</section>
+					<section>
+						<h3 class="nocaps">Testing Services</h3>
+						<p>In order to test services we need to use the $injector to get an instance of the service</p>
+						<pre class="fragment roll-in"><code>
+    describe("Testing a Service", function() {
+    	// get the module that contains the service
+        beforeEach(module('NameOfModule'));
+
+        // inject the $injector
+		beforeEach(inject(function($injector){
+			//use the $injector to get a hold of the service
+			service = $injector.get('ServiceName');
+		}));        
+
+    });
+						</code></pre>
+					</section>
+					<section>
+						<h3 class="nocaps">Testing Directives</h3>
+						<p>In order to test a directive, we need to create an <b>element</b> that will host the directive and <b>compile</b> it with a <b>scope</b>.</p>
+						<p> In our spec, we need to trigger the <b>digest</b>.</p>
+						<pre class="fragment roll-in"><code>
+    describe("Testing a Directive", function() {
+    	// get the module that contains the service
+        beforeEach(module('NameOfModule'));
+
+        // inject the $compile service and the $rootScope
+		beforeEach(inject(function($compile,$rootScope){
+			
+			// use the $rootScope to create a scope for the directive
+			scope = $rootScope;
+
+			// create an angular element from a HTML string.
+			element = angular.element('<div my-directive></div>')
+
+			// compile the element with the scope
+			$compile(element(scope))
+			scope.$apply()
+		}));        
+
+    });
+						</code></pre>
+					</section>
+					<section>
+						<h3 class="nocaps">Testing http Requests</h3>
+						<p>the $httpBackend is a fake HTTP Back-end implementation. in the most basic use we can verify that a request is made & stub responses</p>
+						<pre class="fragment roll-in"><code>
+    describe("Testing a Backend", function() {
+    	// inject the $httpBackend service and the $rootScope
+    	beforeEach(inject(function($httpBackend){
+
+    		// use the $rootScope to create a scope for the directive
+    		httpBackend = $httpBackend;
+    	}));
+
+    	it("something that makes a request", function(){
+
+    		//expect a request
+    		httpBackend.expectGET('/api').respond(200);
+
+    		//code that make a request
+    		httpBackend.flush(); // don't forget to flush.
+    	});
+    });
+						</code></pre>
+					</section>
+				</section>
+
+				
+				
+				<section>
+					<img src="images/Spock_vulcan-salute.png">
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

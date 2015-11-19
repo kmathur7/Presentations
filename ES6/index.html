@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>ES6.js</title>
+
+		
+		<meta name="author" content="Kunal Mathur">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- <link rel="stylesheet" href="css/reveal.min.css"> -->
+		<link rel="stylesheet" href="css/reveal.css">
+		<!-- <link rel="stylesheet" href="css/theme/default.css" id="theme"> -->
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- For print to pdf support -->
+		<!-- <link rel="stylesheet" href="css/print/pdf.css"> -->
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section> 
+					<h1 class="nocaps"><img src="images/js.png" border =none; width="50%"></h1>
+					<h1 class="nocaps">ECMAScript 6</h1>
+					
+				</section>
+				<section>
+					<h3 class="nocaps">What we gonna talk today ? </h3>
+					<h4 class="nocaps">And what you should know ?</h4>
+					
+				</section>
+
+				
+				<section>
+					<section>
+						<h2 class="nocaps">History of JavaScript/ECMAScript</h2>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2 class="nocaps"><strong>Let's get started !!</strong></h2>
+					</section>
+					<section>
+						<h3 class="nocaps">Few Questions to ponder over</h3>
+						<p>How do I migrate my ECMAScript 5 code to ECMAScript 6?</p>
+						<p>Does it still make sense to learn ECMAScript 5?</p>
+						<p>What are transpilers?</p>
+						
+					</section>
+					<section>
+						<h3 class="nocaps">Arrow Function => </h3>
+						<pre class="fragment roll-in"><code>
+					var newGreeting = function(message,name){
+						return message + name;
+					}
+						</code></pre>
+						<pre class="fragment roll-in"><code>
+					var arrowGreeting = (message,name) => message + name;
+					</code></pre>
+						<pre class="fragment roll-in"><code>
+					var square = x => x * x;
+					var add = (a, b) => a + b;
+					</code></pre>
+						
+					</section>
+					<section>
+						<h3 class="nocaps">Block Scope</h3>
+						<pre class="fragment roll-in"><code>
+					var x = 0;
+
+					for (var i = 0; i < 10; i++) {
+    					x += 10;
+					}
+
+					try {
+							console.log(i);
+						} catch(e) {
+							console.log('i does not exist here!');
+						}
+						</code></pre>
+						<pre class="fragment roll-in"><code>
+					var x = 0;
+
+					for (let i = 0; i < 10; i++) {
+    					x += 10;
+					}
+
+					try {
+							console.log(i);
+						} catch(e) {
+							console.log('i does not exist here!');
+						}
+						</code></pre>
+					</section>
+					<section>
+						<h3 class="nocaps">Classes</h3>
+						<pre class="fragment roll-in"><code>
+					class Human {
+						constructor(name){
+							this.name = name;
+						}
+
+						toString() {
+							return "hello " + this.name;
+						}
+					}
+
+					var me = new Human('kunal');
+					console.log(me.toString());
+						</code></pre>
+						
+					</section>
+					<section>
+						<h3 class="nocaps">Inheritance</h3>
+						<pre class="fragment roll-in"><code>
+					class Human {
+						constructor(name){
+							this.name = name;
+						}
+
+						toString() {
+							return "hello " + this.name;
+						}
+					}
+
+					class Person extends Human{
+						constructor(name,age){
+						super();
+						super.constructor(name);
+						this.age = age;
+						}
+						
+						toString(){
+							return super.toString() + " I am a person & my age is "+ this.age;
+						}
+					}
+
+					var me = new Person('kunal',25);
+					console.log(me.toString());
+						</code></pre>
+					</section>
+					<section>
+						<h3 class="nocaps">Default Parameters</h3>
+						<pre class="fragment roll-in"><code>
+					function sayMsg(msg='This is a default message.') {
+					console.log(msg);
+					}
+
+					sayMsg();
+					sayMsg('This is a different message!');
+						</code></pre>
+					</section>
+					<section>
+						<h3 class="nocaps">Destructured Assignments</h3>
+						<p class="fragment roll-in">binding using pattern matching, with support for matching arrays and objects</p>
+						<pre class="fragment roll-in"><code>
+					let [one, two] = [1, 2];
+					let {three, four} = {three: 3, four:  4};
+
+						console.log(one, two, three, four);
+						</code></pre>
+					</section>
+					<section>
+						<h3 class="nocaps">Iterators</h3>
+						<p>for loop</p>
+						<p>forEach loop</p>
+						<p>for of loop</p>
+						<pre><code>
+					let arr = [1, 2, 3, 4, 5];
+					let sum = 0;
+
+					for (let v of arr) {
+						sum += v;
+						}
+
+					console.log('1 + 2 + 3 + 4 + 5 =', sum);
+
+						</code></pre>
+					</section>
+					<section>
+						<h3 class="nocaps">Template Literals</h3>
+						<pre><code>
+					var person = {name: 'John Smith'};
+					var tpl = `My name is`+ person.name;
+
+					console.log(tpl);		
+						</code></pre>
+						<pre class="fragment roll-in"><code>
+					let person = {name: 'John Smith'};
+					let tpl = `My name is ${person.name}.`;
+
+					console.log(tpl);		
+						</code></pre>
+					</section>
+
+
+				</section>
+				<section>
+					<section>
+						<h3 class="nocaps">Generators</h3>
+						<p class="fragment roll-in">In traditional functions, once the function starts running, it will always run to completion before any other JS code can run</p>
+						<p class="fragment roll-in">Generators are different kind of functions, which may be paused in the middle, one or many times, and resumed later, allowing other code to run during these paused periods.</p>
+					</section>
+					<section>
+						<pre><code>
+					setTimeout(function(){
+    					console.log("Hello World");
+					},1);
+
+					function foo() {
+    					// NOTE: don't ever do crazy long-running loops like this
+    					for (var i=0; i<=1E10; i++) {
+        					console.log(i);
+    					}
+					}
+
+					foo();
+					
+					// 0..1E10
+					// "Hello World"
+						</code></pre>
+					</section>
+					<section>
+					<p>Inside the generator function body, you use the new yield keyword to pause the function from inside itself. Nothing can pause a generator from the outside; it pauses itself when it comes across a yield.</p>
+					<p>However, once a generator has yield-paused itself, it cannot resume on its own. An external control must be used to restart the generator.</p>
+						
+					</section>
+					<section>
+						<pre><code>
+					function *foo(x) {
+    					var y = 2 * (yield (x + 1));
+    					var z = yield (y / 3);
+    					return (x + y + z);
+						}
+
+					var it = foo( 5 );
+
+					// note: not sending anything into `next()` here
+					console.log( it.next() );       // { value:6, done:false }
+					console.log( it.next( 12 ) );   // { value:8, done:false }
+					console.log( it.next( 13 ) );   // { value:42, done:true }		
+						</code></pre>
+					</section>
+						
+				</section>
+				
+				<section>
+					<img src="images/Spock_vulcan-salute.png">
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
