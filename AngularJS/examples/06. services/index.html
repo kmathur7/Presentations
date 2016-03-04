@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html ng-app="MyApp">
+<html>
 <head>
 	<title>Hello Angular</title>
 	<script type="text/javascript" src="lib/angular.js"></script>
-	<script type="text/javascript" src="lib/angular-route.js"></script>
-
 </head>
-<body>
+<body data-ng-app="MyApp">
 
-<div ng-controller="InfoCtrl">{{user}}</div>
-<div ng-controller="DetailCtrl"></div>
+<div data-ng-controller="InfoController">{{user}}</div>
+<div data-ng-controller="DetailController"></div>
 
 
 
-<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/module.js"></script>
+<script type="text/javascript" src="./js/controllers/detailcontroller.js"></script>
+<script type="text/javascript" src="./js/controllers/listcontroller.js"></script>
+<script type="text/javascript" src="./js/services/userservice.js"></script>
 </body>
 </html>

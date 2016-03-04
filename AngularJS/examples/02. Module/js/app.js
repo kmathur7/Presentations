@@ -1,8 +1,17 @@
-angular.module('MyApp',[])
+(function() {
+    'use strict';
+    
+	angular
+		.module('MyApp',[])
+		.constant('VERSION','1')
+		.run(run);
 
-	.constant('VERSION','1')
+		run.$inject = ['VERSION'];
 
-	.run(['VERSION',function(VERSION){
+		function run(VERSION){
+			alert(VERSION);
+		}
 
-		alert(VERSION);
-	}]);
+
+
+})();
