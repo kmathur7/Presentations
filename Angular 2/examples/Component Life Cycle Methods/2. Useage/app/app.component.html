@@ -1,0 +1,9 @@
+<h1>
+  {{title}}
+  <app-lifecycle *ngIf="!delete">
+    <p>{{test}}</p>
+  </app-lifecycle>
+
+  <button (click)="delete = true">Delete component</button>
+  <button (click)="test = 'Changed value'">Click to change</button>
+</h1>

@@ -1,0 +1,6 @@
+<h1>Root Component</h1>
+<hr>
+<input type="text" #id (input)="0">
+<a [routerLink]="['user', id.value]">User</a>
+<a routerLink="/">Home</a>
+<router-outlet></router-outlet>
