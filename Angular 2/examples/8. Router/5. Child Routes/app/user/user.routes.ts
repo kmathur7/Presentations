@@ -4,7 +4,11 @@ import { UserEditDetailComponent } from './user-edit-detail.component';
 import { UserDetailComponent } from './user-detail.component';
 
 export const USER_ROUTES: Routes = [
-     {path: '', component: UserComponent},
-    {path: 'detail', component: UserDetailComponent},
-    {path: 'edit', component: UserEditDetailComponent}
-]
+    {
+        path: '', component: UserComponent, children: [
+            { path: 'detail', component: UserDetailComponent },
+            { path: 'edit', component: UserEditDetailComponent }
+        ]
+    },
+
+];
